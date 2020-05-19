@@ -15,10 +15,24 @@ body {
     }
 
     .pattern {
-      display: inline-grid;
+/*      display: inline-grid;
       grid-template-columns: repeat(6, 100px);
-      grid-gap: 100px;
-      padding: 50px;
+      grid-gap: 100px;*/
+      padding-top: 10px;
+      margin: auto;
+    }
+
+    .square {
+      display:block;
+      width: 100%;
+      height:100%;
+      /*padding-bottom: 100%;*/
+      border-style: solid;
+      border-width: thin;
+    }
+    .shape{
+      width: 80%;
+      height:auto;
 
     }
 
