@@ -36,6 +36,11 @@ body {
 
     }
 
+    .test-shape{
+      width: 20%;
+       height:auto;
+
+      }
     .houses_container {
       display: inline-grid;
       grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
