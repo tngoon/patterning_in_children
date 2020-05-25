@@ -1,10 +1,10 @@
-body {
+/* body {
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-    }
+    } */
  /*this is a comment*/
     /* https://stackoverflow.com/questions/19201715/how-do-i-get-a-page-to-auto-fit-to-a-window user: JSW189 */
 
@@ -44,7 +44,7 @@ body {
     .houses_container {
       display: inline-grid;
       grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-      padding-top: 50px;
+      padding-top: 150px;
       padding-bottom: 50px;
       grid-gap: 15px;
       cursor: pointer;
@@ -110,7 +110,7 @@ body {
 
     /* shapes - from https://css-tricks.com/the-grid-item-of-css/*/
 
-    #yellow_triangle {
+    /* #yellow_triangle {
       width: 0;
       height: 0;
       border-bottom: 100px solid #ffff00;
@@ -299,7 +299,7 @@ body {
     #red_heart:after {
       left: 15px;
       top: 0;
-    }
+    } */
 
     /* AAB demo */
     .small_house {

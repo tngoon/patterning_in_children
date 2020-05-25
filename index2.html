@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
@@ -25,7 +24,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-     <!--  <div class="collapse navbar-collapse" id="navbarResponsive">
+      <!--  <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home
@@ -59,55 +58,85 @@
         </ul> -->
       </div>
     </div>
-    <!-- Pre-test patterns -->
-      
-      <div class="pattern">
-        <div class="row">
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-              </div>
-            </div>
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-                <img src="images/yellow_triangle.png" class="shape">
-              </div>
-            </div>
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-                <img src="images/pink_diamond.png" class="shape">
-              </div>
-            </div>
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-                <img src="images/yellow_triangle.png" class="shape">
-              </div>
-            </div>
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-                <img src="images/yellow_triangle.png" class="shape">
-              </div>
-            </div>
-            <div class="col col-sm-2 text-center">
-              <div class="square">
-                <img src="images/pink_diamond.png" class="shape">
-              </div>
-            </div>
-        </div>
-        <!-- draggable shapes -->
-        <div class="row">
-          <div class="col col-sm-6 text-center">
-            <div class="square">
-              <img src="images/yellow_triangle.png" class="test-shape">
-            </div>
+  </div>
+
+  <!-- Pre-test patterns -->
+  <div class="container">
+    <div clas="pattern">
+      <div class="row">
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/yellow_triangle.png" alt="yellow triangle" class="shape" draggable="false">
           </div>
-          <div class="col col-sm-6 text-center">
-            <img src="images/pink_diamond.png" class="test-shape">
+        </div>
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/yellow_triangle.png" alt="yellow triangle" class="shape" draggable="false">
+          </div>
+        </div>
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/pink_diamond.png" alt="pink_diamond" class="shape" draggable="false">
+          </div>
+        </div>
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/yellow_triangle.png" alt="yellow triangle" class="shape" draggable="false">
+          </div>
+        </div>
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/yellow_triangle.png" alt="yellow triangle" class="shape" draggable="false">
+          </div>
+        </div>
+        <div class="col col-sm-2 text-center">
+          <div class="square">
+            <img src="images/pink_diamond.png" alt="pink_diamond" class="shape" draggable="false">
           </div>
         </div>
       </div>
+    </div>
   </div>
 
+  <!-- boxes where draggable shapes are dropped -->
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="box" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- draggable shapes -->
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-2">
+        <div class="test-shape">
+          <img id="yellow_triangle" src="images/yellow_triangle.png" class="test-shape" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+      <div class="col col-sm-2">
+        <div class="test-shape">
+          <img id="pink_diamond" src="images/pink_diamond.png" class="test-shape" draggable="true" ondragstart="drag(event)">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="js/jquery.slim.min.js"></script>
