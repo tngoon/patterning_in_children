@@ -26,7 +26,12 @@
       margin: auto;
     }
 
+    .col {
+      display: flex;
+      justify-content: center;
+    }
     .row {
+      display: flex;
       justify-content: center;
       align-items: center;
       padding: 10px;
@@ -97,16 +102,17 @@
     .box {
       display: block;
       border: 1px solid;
-      width: 12vw;
-      height: 12vw;
+      width: 11vw;
+      height: 11vw;
+      /* padding: 5px; */
     }
 
-    .boxes {
+    /* .boxes {
       width: 100px;
       height: 100px;
       border: 1px solid black;
       padding: 15px;
-    }
+    } */
 
     /* .shape_selection {
       display: inline-grid;
@@ -532,22 +538,19 @@
       color: white;
       padding: 10px 20px;
       text-align: center;
-      text-decoration: none;
       display: inline-block;
       font-family: arial;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
       border: none;
-
     }
 
-    .button:hover,
-    .button:active {
+    .button:hover{
       background-color: grey;
     }
 
-    .pretest1,
+    /* .pretest1,
     .pretest2,
     .AAB_abs,
     .ABB_abs,
