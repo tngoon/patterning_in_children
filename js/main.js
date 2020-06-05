@@ -20,13 +20,13 @@ function allowDrop(ev) {
   }
 
   function dragEnter(event) {
-    if (event.target.className == "box d-flex align-items-center") {
+    if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.backgroundColor = "lightgrey";
     }
   }
 
   function dragLeave(event) {
-    if (event.target.className == "box d-flex align-items-center") {
+    if (event.target.className == "box d-flex justify-content-center align-items-center") {
       event.target.style.backgroundColor = "";
     }
   }
@@ -57,168 +57,96 @@ function allowDrop(ev) {
     $(this).children().remove();
   });
 
+  // showing token/no token under houses
 
-  // $(".box, .pattern, .shape_selection, .houses_container, .houses_container_gen, .stars_container, .stars_container_gen, .AAB_towers_container, .AAB_small").css("display", "none");
+  $("#house7").click(function() {
+    $("#star3").show();
+  });
+
+  $("#house8").click(function() {
+    $("#x5").show();
+  });
+
+  $("#house9").click(function() {
+    $("#x6").show();
+  });
+
+  $("#house10").click(function() {
+    $("#star4").show();
+  });
+
+  $("#house11").click(function() {
+    $("#x7").show();
+  });
+
+  $("#house12").click(function() {
+    $("#x8").show();
+  });
+
+  $("#house13").click(function() {
+    $("#star5").show();
+  });
+
+  $("#house14").click(function() {
+    $("#x9").show();
+  });
+
+  $("#house15").click(function() {
+    $("#x10").show();
+  });
+
+  // next button to show AAB generalization task
+  function showAABGen() {
+    $(".cars, .tokens_gen").show();
+    $("#AABGen").hide();
+  }
+
+// showing tokens/no tokens under cars
+  $("#car7").click(function() {
+    $("#star3_gen").show();
+  });
+
+  $("#car8").click(function() {
+    $("#x5_gen").show();
+  });
+
+  $("#car9").click(function() {
+    $("#x6_gen").show();
+  });
+
+  $("#car10").click(function() {
+    $("#star4_gen").show();
+  });
+
+  $("#car11").click(function() {
+    $("#x7_gen").show();
+  });
+
+  $("#car12").click(function() {
+    $("#x8_gen").show();
+  });
+
+  $("#car13").click(function() {
+    $("#star5_gen").show();
+  });
+
+  $("#car14").click(function() {
+    $("#x9_gen").show();
+  });
+
+  $("#car15").click(function() {
+    $("#x10_gen").show();
+  });
+
+  // random assignment of conditions
   //
-  // function startPretest1() {
-  //   $(".welcome, #startPretest1").hide();
-  //   $(".box, .pattern, .shape_selection, .pretest1, #startPretest2").show();
-  // }
+  // function getCondition() {
   //
-  // function startPretest2() {
-  //   $(".pretest1, #startPretest2").hide();
-  //   $(".pretest2, #startAAB_demo").show();
-  // }
-  // // AAB demo
-  // function startAAB_demo() {
-  //   $(".box, .shape_selection, .pretest2, #startAAB_demo").hide();
-  //   $(".houses_container, .stars_container, .star1, .empty_big1, .empty_small1, #startAAB_gen").show();
-  // }
-  //
-  // $("#small_house3").click(function() {
-  //   if ($("#star3").css("visibility") == "hidden")
-  //     $("#star3").css("visibility", "visible");
-  //   else
-  //     $("#star3").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house4").click(function() {
-  //   if ($("#x5").css("visibility") == "hidden")
-  //     $("#x5").css("visibility", "visible");
-  //   else
-  //     $("#x5").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house2").click(function() {
-  //   if ($("#x6").css("visibility") == "hidden")
-  //     $("#x6").css("visibility", "visible");
-  //   else
-  //     $("#x6").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house5").click(function() {
-  //   if ($("#star4").css("visibility") == "hidden")
-  //     $("#star4").css("visibility", "visible");
-  //   else
-  //     $("#star4").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house6").click(function() {
-  //   if ($("#x7").css("visibility") == "hidden")
-  //     $("#x7").css("visibility", "visible");
-  //   else
-  //     $("#x7").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house3").click(function() {
-  //   if ($("#x8").css("visibility") == "hidden")
-  //     $("#x8").css("visibility", "visible");
-  //   else
-  //     $("#x8").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house7").click(function() {
-  //   if ($("#star5").css("visibility") == "hidden")
-  //     $("#star5").css("visibility", "visible");
-  //   else
-  //     $("#star5").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house8").click(function() {
-  //   if ($("#x9").css("visibility") == "hidden")
-  //     $("#x9").css("visibility", "visible");
-  //   else
-  //     $("#x9").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house4").click(function() {
-  //   if ($("#x10").css("visibility") == "hidden")
-  //     $("#x10").css("visibility", "visible");
-  //   else
-  //     $("#x10").css("visibility", "hidden");
-  // });
-  //
-  // // AAB gen
-  //
-  // function startAAB_gen() {
-  //   $("#startAAB_gen").hide();
-  //   $(".houses_container_gen, .stars_container_gen, .star1_gen, .empty_big1_gen, .empty_small1_gen, #startAAB_abs").show();
-  // }
-  //
-  // $("#small_house3_gen").click(function() {
-  //   if ($("#star3_gen").css("visibility") == "hidden")
-  //     $("#star3_gen").css("visibility", "visible");
-  //   else
-  //     $("#star3_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house4_gen").click(function() {
-  //   if ($("#x5_gen").css("visibility") == "hidden")
-  //     $("#x5_gen").css("visibility", "visible");
-  //   else
-  //     $("#x5_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house2_gen").click(function() {
-  //   if ($("#x6_gen").css("visibility") == "hidden")
-  //     $("#x6_gen").css("visibility", "visible");
-  //   else
-  //     $("#x6_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house5_gen").click(function() {
-  //   if ($("#star4_gen").css("visibility") == "hidden")
-  //     $("#star4_gen").css("visibility", "visible");
-  //   else
-  //     $("#star4_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house6_gen").click(function() {
-  //   if ($("#x7_gen").css("visibility") == "hidden")
-  //     $("#x7_gen").css("visibility", "visible");
-  //   else
-  //     $("#x7_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house3_gen").click(function() {
-  //   if ($("#x8_gen").css("visibility") == "hidden")
-  //     $("#x8_gen").css("visibility", "visible");
-  //   else
-  //     $("#x8_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house7_gen").click(function() {
-  //   if ($("#star5_gen").css("visibility") == "hidden")
-  //     $("#star5_gen").css("visibility", "visible");
-  //   else
-  //     $("#star5_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#small_house8_gen").click(function() {
-  //   if ($("#x9_gen").css("visibility") == "hidden")
-  //     $("#x9_gen").css("visibility", "visible");
-  //   else
-  //     $("#x9_gen").css("visibility", "hidden");
-  // });
-  //
-  // $("#big_house4_gen").click(function() {
-  //   if ($("#x10_gen").css("visibility") == "hidden")
-  //     $("#x10_gen").css("visibility", "visible");
-  //   else
-  //     $("#x10_gen").css("visibility", "hidden");
-  // });
-  //
-  // function startAAB_abs() {
-  //   $(".houses_container, .star1, .empty_big1, .empty_small1, .star2, .empty_big2, .empty_small2, .houses_container_gen, .star1_gen, .empty_big1_gen, .empty_small1_gen, .star2_gen, .empty_big2_gen, .empty_small2_gen, #startAAB_abs").hide();
-  //   $(".box, .shape_selection, .AAB_abs, #startABB_gen").show();
-  // }
-  //
-  // function startABB_gen() {
-  //   $(".box, .shape_selection, .AAB_abs, #startABB_gen").hide();
-  //   $("#startABB_abs").show();
-  // }
-  //
-  // function startABB_abs() {
-  //   $("#AABAAB_tower, .AAB_towers_container, .AAB_small, #startABB_abs").hide();
-  //   $(".box, .shape_selection, .ABB_abs").show();
+  // var condition = Math.floor((Math.random() * 10) + 1);
+  //   if (condition <= 5) {
+  //    location.href = "houses.html";
+  //   }
+  //   else {
+  //      location.href = "AABabs1_EG.html";
+  //   }
   // }

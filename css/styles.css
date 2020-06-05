@@ -5,63 +5,122 @@
       left: 0;
       right: 0;
     } */
- /*this is a comment*/
-    /* https://stackoverflow.com/questions/19201715/how-do-i-get-a-page-to-auto-fit-to-a-window user: JSW189 */
+/*this is a comment*/
+/* https://stackoverflow.com/questions/19201715/how-do-i-get-a-page-to-auto-fit-to-a-window user: JSW189 */
+.welcome {
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-    .welcome {
-      font-family: Helvetica;
-      font-size: 20px;
-      font-weight: bold;
-    }
+.pattern {
+  padding-top: 10px;
+  margin: auto;
+}
 
-    .pattern {
-/*      display: inline-grid;
-      grid-template-columns: repeat(6, 100px);
-      grid-gap: 100px;*/
-      padding-top: 10px;
-      margin: auto;
-    }
-    .houses {
-      padding-top: 10px;
-      margin: auto;
-    }
+.houses {
+  padding-top: 5px;
+  margin: auto;
+}
 
-    .col {
-      display: flex;
-      justify-content: center;
-    }
-    .row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-    }
+.col {
+  display: flex;
+  justify-content: center;
+  padding: 1px;
+}
 
-    .square {
-      display:block;
-      width: 100%;
-      height:100%;
-      /*padding-bottom: 100%;*/
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
-    }
-    .shape{
-      width: 100%;
-      height: auto;
+.square {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /*padding-bottom: 100%;*/
+}
 
-    }
+.shape {
+  width: 10.5vw;
+  height: auto;
+}
 
-    .test-shape{
-      width: 100%;
-       height: auto;
-       cursor: grab;
-      }
+.test-shape {
+  width: 90%;
+  height: auto;
+  cursor: grab;
+}
 
-    .test-shape:active {
-        cursor: grabbing;
-        animation: rotation 2s infinite 0s linear;
-      }
+.test-shape:active {
+  cursor: grabbing;
+  animation: rotation 2s infinite 0s linear;
+}
 
-    .houses_container {
+.box {
+  display: block;
+  border: 1px solid;
+  width: 12vw;
+  height: 12vw;
+  padding: auto;
+}
+
+.small_house1, .small_house2 {
+  width: 90%;
+  height: auto;
+  margin: -3px;
+}
+
+.big_house1, .big_house2 {
+  width: 100%;
+  height: auto;
+}
+
+.small_car1, .small_car2 {
+  width: 80%;
+  height: auto;
+}
+
+.big_car1, .big_car2 {
+  width: 100%;
+  height: auto;
+}
+
+.star1, .star2 {
+  width: 80%;
+  height: auto;
+}
+
+.red_x1, .red_x2 {
+  width: 60%;
+  height: auto;
+}
+
+.star1_gen, .star2_gen {
+  width: 65%;
+  height: auto;
+}
+
+.red_x1_gen, .red_x2_gen {
+  width: 50%;
+  height: auto;
+}
+
+.small_house2, .big_house2, .small_car2, .big_car2 {
+  cursor: pointer;
+}
+
+.small_house2:hover, .big_house2:hover, .small_car2:hover, .big_car2:hover {
+  opacity: 85%;
+}
+
+.cars, .tokens_gen, .star2, .red_x2, .star2_gen, .red_x2_gen {
+  display: none;
+}
+
+/* .houses_container {
       display: inline-grid;
       grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
       padding-top: 150px;
@@ -97,24 +156,15 @@
       transform-origin: left;
       transform: scale(0.3);
       margin-top: -50px;
-    }
+    } */
 
-    .box {
-      display: block;
-      border: 1px solid;
-      width: 11vw;
-      height: 11vw;
-      /* padding: 5px; */
-    }
-
-    /* .boxes {
+/* .boxes {
       width: 100px;
       height: 100px;
       border: 1px solid black;
       padding: 15px;
     } */
-
-    /* .shape_selection {
+/* .shape_selection {
       display: inline-grid;
       margin: auto;
       grid-template-columns: auto auto;
@@ -127,10 +177,8 @@
       cursor: grabbing;
       animation: rotation 2s infinite 0s linear;
     } */
-
-    /* shapes - from https://css-tricks.com/the-grid-item-of-css/*/
-
-    /* #yellow_triangle {
+/* shapes - from https://css-tricks.com/the-grid-item-of-css/*/
+/* #yellow_triangle {
       width: 0;
       height: 0;
       border-bottom: 100px solid #ffff00;
@@ -320,9 +368,8 @@
       left: 15px;
       top: 0;
     } */
-
-    /* AAB demo */
-    .small_house {
+/* AAB demo */
+/* .small_house {
       width: 60px;
       height: 60px;
       background: orange;
@@ -356,10 +403,9 @@
     .empty_small1,
     .empty_small2,
     .empty_big1,
-    .empty_big2
-
-    /* X - from https://jsfiddle.net/a6rnbfyu/1/ */
-      {
+    .empty_big2 */
+/* X - from https://jsfiddle.net/a6rnbfyu/1/ */
+/* {
       width: 60px;
       height: 60px;
       position: relative;
@@ -386,13 +432,11 @@
       border-left: 20px solid red;
       position: absolute;
       transform: rotate(-45deg);
-    }
-
-    .star1,
-    .star2
-
-    /* star - from http://www.floatnine.com/single-div-star-with-css/ */
-      {
+    } */
+/* .star1,
+    .star2 */
+/* star - from http://www.floatnine.com/single-div-star-with-css/ */
+/* {
       position: relative;
       color: gold;
       width: 0px;
@@ -435,10 +479,9 @@
       border-left: 100px solid transparent;
       transform: rotate(-70deg);
       content: "";
-    }
-
-    /* AAB gen w/ eggs */
-    .small_house_gen {
+    } */
+/* AAB gen w/ eggs */
+/* .small_house_gen {
       display: block;
       width: 60px;
       height: 90px;
@@ -531,26 +574,25 @@
       border-left: 100px solid transparent;
       transform: rotate(-70deg);
       content: "";
-    }
+    } */
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
 
-    .button {
-      background-color: black;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      display: inline-block;
-      font-family: arial;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border: none;
-    }
+.button:hover {
+  background-color: grey;
+}
 
-    .button:hover{
-      background-color: grey;
-    }
-
-    /* .pretest1,
+/* .pretest1,
     .pretest2,
     .AAB_abs,
     .ABB_abs,
@@ -580,4 +622,4 @@
     .empty_small2_gen {
       visibility: hidden;
       /* https://stackoverflow.com/questions/18050761/toggle-visibility-property-of-div user: tb11 */
-    }
+}
