@@ -27,7 +27,7 @@ data_bycondition <- summarise(data,
                               n = length(condition),
                               abb_pre = length(which(abb_abs1==1))/length(condition),
                               aab_pre = length(which(aab_abs1==1))/length(condition),
-                              gen_stars = mean(stars_found),
+                              gen_stars = mean(num_stars),
                               abb_post = length(which(abb_abs2==1))/length(condition),
                               aab_post = length(which(aab_abs2==1))/length(condition))
 
@@ -35,13 +35,9 @@ data_bycondition
 ```
 ```{r}
 #number of stars found by age and condition
-ggplot(data, aes(x=stars_found, y=age)) +
+ggplot(data, aes(x=num_stars, y=age)) +
   geom_point(aes(color=condition)) +
   theme_bw()
-```
-```{r}
-ggplot(data, aes(x=age_group,y=stars_found))+
-  geom_point(aes(color=condition))
 ```
 
 ```{r}
@@ -64,7 +60,7 @@ age_summary <- summarise(data_byage,
               n = length(age_group),
               abb_pre = length(which(abb_abs1==1))/length(age_group),
               aab_pre = length(which(aab_abs1==1))/length(age_group),
-              gen_stars = mean(stars_found),
+              gen_stars = mean(num_stars),
               abb_post = length(which(abb_abs2==1))/length(age_group),
               aab_post = length(which(aab_abs2==1))/length(age_group))
 age_summary
