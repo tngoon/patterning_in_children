@@ -15,6 +15,7 @@ library(reshape2)
 library(pwr)
 library(irr)
 library(coin)
+library(pwr)
 ```
 
 ```{r}
@@ -52,35 +53,112 @@ ggplot(data_abstraction, aes(variable, value)) +
   theme_bw()
 ```
 ```{r}
-data_byage <- group_by(data,age_group,condition)
-head(data_byage)
+data_age <- group_by(data,age_agg,condition) 
+data_age <- filter(data_age, age_agg!="four")
+head(data_age)
 ```
 ```{r}
-age_summary <- summarise(data_byage,
-              n = length(age_group),
-              abb_pre = length(which(abb_abs1==1))/length(age_group),
-              aab_pre = length(which(aab_abs1==1))/length(age_group),
-              gen_stars = mean(num_stars),
-              abb_post = length(which(abb_abs2==1))/length(age_group),
-              aab_post = length(which(aab_abs2==1))/length(age_group))
-age_summary
+pwr.chisq.test(w=.8,df=(2-1)*(2-1),sig.level = .05,power=.8)
 ```
 
 ```{r}
-data_age <- melt(age_summary, id.vars = c('age_group', 'condition'), measure.vars = c('abb_pre','aab_pre','abb_post','aab_post'))
-data_age
+ageagg_summary <- summarise(data_age,
+              n = length(age_agg),
+              abb_pre = length(which(abb_abs1==1))/length(age_agg),
+              aab_pre = length(which(aab_abs1==1))/length(age_agg),
+              gen_stars = mean(num_stars),
+              abb_post = length(which(abb_abs2==1))/length(age_agg),
+              aab_post = length(which(aab_abs2==1))/length(age_agg),
+              zerostar = length(which(num_stars==0))/length(age_agg),
+              onestar = length(which(num_stars==1))/length(age_agg),
+              twostar = length(which(num_stars==2))/length(age_agg),
+              threestar = length(which(num_stars==3))/length(age_agg),
+              randomexp = length(which(gen_strat=="randomexp"))/length(age_agg),
+              exploit = length(which(gen_strat=="exploit"))/length(age_agg),
+              bigonly = length(which(gen_strat=="bigonly"))/length(age_agg),
+              seq = length(which(gen_strat=="seq"))/length(age_agg),
+              semiseq = length(which(gen_strat=="semiseq"))/length(age_agg),
+              backseq = length(which(gen_strat=="backseq"))/length(age_agg))
+ageagg_summary
 ```
 ```{r}
-ggplot(data=data_age, aes(x=variable, y=value, fill=age_group)) +
-  geom_col(position="dodge")+
+#dataset for num stars found by age
+d_age <- filter(ageagg_summary, condition=="Demonstration")
+e_age <- filter(ageagg_summary, condition=="Exploration")
+
+dm1 <- melt(d_age[,c('age_agg','zerostar','onestar','twostar','threestar')], id.vars=1)
+dm1
+
+dm2 <- melt(e_age[,c('age_agg','zerostar','onestar','twostar','threestar')], id.vars=1)
+dm2
+
+#reorder data
+dm1$age_agg <- as.character(dm1$age_agg)
+dm1$age_agg <- factor(dm1$age_agg, levels=c("four","five","six"))
+
+dm2$age_agg <- as.character(dm2$age_agg)
+dm2$age_agg <- factor(dm2$age_agg, levels=c("four","five","six"))
+
+dm1$variable <- as.character(dm1$variable)
+dm1$variable <- factor(dm1$variable, levels=c("threestar","twostar","onestar","zerostar"))
+
+dm2$variable <- as.character(dm2$variable)
+dm2$variable <- factor(dm2$variable, levels=c("threestar","twostar","onestar","zerostar"))
+```
+```{r}
+ggplot(dm1,aes(age_agg,value)) +
+  geom_bar(aes(fill=variable),stat="identity", position="fill") +
+  coord_flip() +
+  ylab(c("Age Group"))+
+  xlab(c("Proportion")) +
+  theme_bw()
+
+ggplot(dm2,aes(age_agg,value)) +
+  geom_bar(aes(fill=variable),stat="identity", position="fill") +
+  coord_flip() +
+  ylab(c("Age Group"))+
+  xlab(c("Proportion")) +
   theme_bw()
 ```
 ```{r}
-stars_age <- melt(age_summary, id.vars = c('age_group', 'condition'), measure.vars = c('gen_stars'))
+#dataframes by strategy
+strat1 <- melt(d_age[,c('age_agg','randomexp','exploit','bigonly','seq','backseq','semiseq')], id.vars=1)
+strat1
+
+strat2 <- melt(e_age[,c('age_agg','randomexp','exploit','bigonly','seq','backseq','semiseq')], id.vars=1)
+strat2
+
+#reorder data
+strat1$age_agg <- as.character(strat1$age_agg)
+strat1$age_agg <- factor(strat1$age_agg, levels=c("four","five","six"))
+
+strat2$age_agg <- as.character(strat2$age_agg)
+strat2$age_agg <- factor(strat2$age_agg, levels=c("four","five","six"))
+```
+```{r}
+ggplot(strat1,aes(age_agg,value)) +
+  geom_bar(aes(fill=variable),stat="identity", position="fill") +
+  ylab(c("Proportion"))+
+  xlab(c("Age Group")) +
+  theme_bw()
+
+ggplot(strat2,aes(age_agg,value)) +
+  geom_bar(aes(fill=variable),stat="identity", position="fill") +
+  ylab(c("Proportion"))+
+  xlab(c("Age Group")) +
+  theme_bw()
+```
+```{r}
+stars_age <- melt(ageagg_summary, id.vars = c('age_agg', 'condition'), measure.vars = c('abb_pre','abb_post'))
 stars_age
 
-ggplot(data=stars_age, aes(x=age_group, y=value, fill=condition)) +
+ggplot(data=stars_age, aes(x=age_agg, y=value, fill=condition)) +
   geom_col(position="dodge")+
   theme_bw()
 ```
+
+
+
+
+
 
