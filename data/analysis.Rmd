@@ -1,0 +1,50 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(reshape2)
+```
+```{r}
+data <- read.table("pic_thesis_data.csv",header=TRUE,sep=",")
+head(data)
+```
+
+```{r}
+data <- group_by(data,condition)
+data_bycondition <- summarise(data,
+                    n = length(condition),
+                    mean_pre = mean(pre),
+                    sd_pre = sd(pre),
+                    se_pre = sd(pre)/sqrt(length(pre)),
+                    mean_post = mean(post),
+                    sd_post = sd(post),
+                    se_post = sd(post)/sqrt(length(post)),
+                    mean_diff = mean(diff),
+                    sd_diff = sd(diff),
+                    se_diff = sd(diff)/sqrt(length(condition)),
+                    stars = mean(stars))
+data_bycondition
+```
+```{r}
+prepost <- lm(diff ~ condition + age, data=data)
+summary(prepost)
+```
+
+
+```{r}
+abb <- lm(abb_diff ~ condition + age,data=data)
+summary(abb)
+
+aab <- lm(aab_diff~condition + age, data=data)
+summary(aab)
+```
+

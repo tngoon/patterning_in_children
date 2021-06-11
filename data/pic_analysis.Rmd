@@ -9,13 +9,8 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 
 ```{r}
 library(ggplot2)
-library(car)
 library(dplyr)
-library(reshape2)
-library(pwr)
-library(irr)
-library(coin)
-library(pwr)
+
 ```
 
 ```{r}
